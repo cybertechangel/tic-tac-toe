@@ -1,0 +1,251 @@
+/*------------------------------------ SPECIAL FONT ------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+/*---------------------------------- GENERAL COLOR STYLE ----------------------------------*/
+
+/*------------- COULEURS PAR DEFAUT -------------*/
+
+:root {
+
+    --border: #f1e9e9;
+    --grid-line: rgba(255, 255, 255, 0.1);
+
+    --bg-color: #000000;
+
+    --text-color: #f1e9e9;
+    --text-border-color: #000000;
+
+    --button-bg: #000000;
+    --button-text: #f1e9e9;
+    --button-border: #f1e9e9;
+
+    --button-hover-bg: #f1e9e9;
+    --button-hover-text: #000000;
+    --button-hover-border: #000000;
+}
+
+#intro-image img {
+    filter: invert(1);
+}
+
+/*------------- COULEURS DARK MODE -------------*/
+
+.light-mode {
+    --border: #000000;
+    --grid-line: rgba(0, 0, 0, 0.1);
+
+    --bg-color: #ffffff;
+
+    --text-color: #000000;
+    --text-border-color: #f1e9e9;
+
+    --button-bg: #000000;
+    --button-text: #f1e9e9;
+    --button-border: #f1e9e9;
+
+    --button-hover-bg: #f1e9e9;
+    --button-hover-text: #000000;
+    --button-hover-border: #000000;
+}
+
+body.light-mode #intro-image img {
+    filter: invert(0);
+}
+
+/*---------------------------------- GENERAL STRUCTURE STYLE ----------------------------------*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+.page-container {
+    display: grid;
+    grid-template-areas:
+    "header"
+    "game"
+    "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+
+    font-family: "Press Start 2P";
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    height: 100vh;
+    place-items: center;
+    justify-content: center;
+    align-items: center;
+    cursor: url("../img/cursor-pixel-normal.cur"), auto;
+}
+
+a:hover,
+button:hover,
+.btn:hover,
+.btn-cat:hover {
+    cursor: url("../img/cursor-pixel-pointer.cur"), pointer;
+}
+
+
+.background-grid {
+    background-color: var(--bg-color);
+    background-image:
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+
+/*---------------------------------- BUTTON ----------------------------------*/
+
+.button-theme {
+    padding: 15px;;
+    border-radius: 50%;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: 1px dashed var(--button-border);
+    font-weight: bold;
+    transform: scale(1.05);
+}
+
+.button-theme:hover {
+    background-color: var(--button-hover-bg);
+    color: var(--button-hover-text);
+    border: 1px dashed var(--button-hover-border);
+}
+
+.btn {
+    background-color: var(--button-bg);
+    color: var(--button-text);        
+    border: 2px solid var(--button-border);
+    font-family: 'Press Start 2P', monospace; 
+    margin: 20px 0;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+
+}
+
+.btn:hover {
+    background-color: var(--button-hover-bg);
+    border: 2px solid var(--button-hover-border);
+    color: var(--button-hover-text);
+    transform: scale(1.05);
+}
+
+/*---------------------------------- PAGE CONTAINER ----------------------------------*/
+
+/*---------------------- HEADER ----------------------*/
+
+header {
+    grid-area: header;
+    text-align: center;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;   
+    align-items: center;    
+    gap: 30px; 
+    padding-top: 30px;    
+}
+
+/*---------------------- GAME CONTAINER ----------------------*/
+
+.game-container {
+    grid-area: game;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;;
+}
+
+#intro-image img {
+    width: 400px;
+    height: auto;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+    row-gap: 10px;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.cell {
+    background-color: #111111;
+    border: 2px dashed #f1e9e9;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #f1e9e9;
+}
+
+.cell:hover {
+    background-color: #222222;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/*---------------------- FOOTER ----------------------*/
+
+footer {
+    grid-area: footer;
+    text-align: center;
+    font-size: 14px;
+    position: fixed;
+    bottom: 0;
+    padding: 10px 0;
+}
+
+/*---------------------------------- MEDIA QUERIES ----------------------------------*/
+
+@media (max-width: 768px) {
+    .page-container {
+        grid-template-areas:
+        "header"
+        "game"
+        "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+
+    header {
+        padding-top: 0px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    header p,
+    .game-container p,
+    .btn {
+        font-size: 12px;
+    }
+
+    #intro-image img {
+        width: 300px;
+    }
+
+    .btn {
+        width: 160px;
+        height: 40px;
+    }
+
+    footer p {
+        position: relative;
+        font-size: 8px;
+    }   
+}

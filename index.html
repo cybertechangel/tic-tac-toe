@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="page-container background-grid">
+        <header>
+            <button id="button-theme" class="button-theme"><i class="bi bi-sun"></i></button>
+
+            <h1>Pixel Tic-Tac-Toe</h1>
+        </header>
+
+        <div class="game-container">
+            <div id="intro-image">
+                <img src="assets/img/tic-tac-toe.png" alt="Tic Tac Toe Image">
+            </div>
+
+
+            <div id="mode-selection">
+                <p>Choose your mode:</p>
+                <button class="btn" onclick="startGame('human')">2 Players</button>
+                <button class="btn" onclick="showAILevels()">Player vs AI</button>
+
+            </div>
+
+            <div id="ai-levels" class="hidden">
+                <p>Select AI level:</p>
+                <button class="btn" onclick="startGame('ai-easy')">Easy</button>
+                <button class="btn" onclick="startGame('ai-medium')">Medium</button>
+                <button class="btn" onclick="startGame('ai-hard')">Hard</button>
+            </div>
+
+
+            <div id="game" class="hidden">
+                <div id="board" class="board"></div>
+                <p id="message"></p>
+                <button class="btn" onclick="resetGame()">Restart Game</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 Nihad E. - All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="assets/js/button-theme.js"></script>
+    <script src="https://unpkg.com/rough-notation/lib/rough-notation.iife.js"></script>
+    <script src="assets/js/animations-rought-notation.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
